@@ -11,22 +11,26 @@ class LeftBackground extends StatefulWidget {
 }
 
 class _LeftBackgroundState extends State<LeftBackground> {
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('images/dog.png'),
-          fit: BoxFit.cover,
+    Size size = MediaQuery.of(context).size;
+    return SizedBox(
+      width: size.width * 0.35,
+      child: Container(
+        constraints: BoxConstraints.tightFor(),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('images/dog.png'),
+            fit: BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.only(bottomRight: Radius.circular(250.0)),
         ),
-        borderRadius: BorderRadius.only(bottomRight: Radius.circular(250.0)),
-      ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              Container(
-                child: SizedBox( height: 50.0, width: 200.0,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                SizedBox( height: 50.0, width: 200.0,
                   child: Container(
                     decoration: const BoxDecoration(
                         shape: BoxShape.rectangle,
@@ -34,15 +38,15 @@ class _LeftBackgroundState extends State<LeftBackground> {
                         borderRadius:
                         BorderRadius.only(bottomRight: Radius.circular(100.0)),
                     ),
-                  child: Image(
+                  child: const Image(
                       image: AssetImage('images/waggitalnobg.png'),
-          fit: BoxFit.cover),
+            fit: BoxFit.fitHeight),
                   ),
                   ),
-                  ),
-            ],
-          )
-        ],
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

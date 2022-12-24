@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:waggital_vet/landing_page/ui/left_bg.dart';
-
-import 'landing_page/landing_page.dart';
+import 'package:waggital_vet/Screens/dashboard/pages/clinics_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LandingPage(title: ''),
+      home: const ClinicsPage(title: ''),
     );
   }
 }
