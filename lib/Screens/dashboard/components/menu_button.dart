@@ -2,28 +2,35 @@ import 'package:flutter/material.dart';
 
 import 'package:waggital_vet/constants.dart';
 
-class MenuButton extends StatelessWidget {
+class MenuButton extends StatefulWidget {
   final IconData icon;
   final String text;
+  final int pageIndex;
+  final int index;
+  final Color color;
   MenuButton({
-    Key? key, required this.icon, required this.text,
+    Key? key, required this.icon, required this.text, required this.index, required this.pageIndex, required this.color
   }) : super(key: key);
 
+  @override
+  State<MenuButton> createState() => _MenuButtonState();
+}
 
+class _MenuButtonState extends State<MenuButton> {
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    Color color = text == 'Clinics' ? kSelectedColor : kBackgroundColor;
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 60),
       height: 50,
-      color: color,
+      color: widget.color,
       child: TextButton.icon(
-        onPressed: () {},
-        label: Text(text, style: TextStyle(
+        style: ButtonStyle(
+
+        ),
+        label: Text(widget.text, style: TextStyle(
           color: kPrimaryColor
         ),),
-        icon: Icon(icon, color: kPrimaryColor,),
+        icon: Icon(widget.icon, color: kPrimaryColor,), onPressed: () {},
       ),
     );
   }

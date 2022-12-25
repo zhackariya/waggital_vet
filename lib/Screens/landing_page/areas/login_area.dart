@@ -7,8 +7,6 @@ import 'package:waggital_vet/components/rounded_input_field.dart';
 import 'package:waggital_vet/components/rounded_password_field.dart';
 import 'package:waggital_vet/Screens/landing_page/components/rounded_button.dart';
 
-// ignore_for_file: prefer_const_constructors
-// ignore_for_file: prefer_const_literals_to_create_immutables
 class LoginArea extends StatefulWidget {
   const LoginArea({Key? key}) : super(key: key);
 
