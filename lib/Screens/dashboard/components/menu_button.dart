@@ -5,11 +5,11 @@ import 'package:waggital_vet/constants.dart';
 class MenuButton extends StatefulWidget {
   final IconData icon;
   final String text;
-  final int pageIndex;
+  int pageIndex;
   final int index;
   final Color color;
   MenuButton({
-    Key? key, required this.icon, required this.text, required this.index, required this.pageIndex, required this.color
+    Key? key, required this.icon, required this.text, required this.index, required this.pageIndex, required this.color,
   }) : super(key: key);
 
   @override
@@ -30,7 +30,11 @@ class _MenuButtonState extends State<MenuButton> {
         label: Text(widget.text, style: TextStyle(
           color: kPrimaryColor
         ),),
-        icon: Icon(widget.icon, color: kPrimaryColor,), onPressed: () {},
+        icon: Icon(widget.icon, color: kPrimaryColor,), onPressed: () {
+          setState(() {
+            widget.pageIndex = widget.index;
+          });
+      },
       ),
     );
   }
