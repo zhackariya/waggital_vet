@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:waggital_vet/Screens/dashboard/pages/clinics_page.dart';
+import 'package:waggital_vet/Screens/dashboard/pages/dashboard_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: ClinicsPage(title: '', userFirstName: 'Suzette'),
+      home: DashboardPage(title: '', userFirstName: 'Suzette', userLastName: 'Rosario',),
     );
   }
 }
