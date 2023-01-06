@@ -27,29 +27,36 @@ const menuItems = [
   {
     "index":"0",
     "name":"Clients",
+    "single":"Client"
   },
   {
     "index":"1",
     "name":"Patients",
+    "single":"Patient"
   },
   {
     "index":"2",
     "name":"Calendar",
+    "single":"Appointment"
   },
   {
     "index":"3",
     "name":"Services",
+    "single":"Service"
   },
   {
     "index":"4",
     "name":"Employees",
+    "single":"Employee"
   },
   {
     "index":"5",
     "name":"Clinics",
+    "single":"Clinic"
   },
   {
     "index":"6",
     "name":"Settings",
+    "single":"Configuration"
   },
 ];

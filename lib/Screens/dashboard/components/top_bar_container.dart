@@ -3,15 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../constants.dart';
+import '../../../models/user.dart';
 import '../pages/dashboard_page.dart';
+import 'package:intl/intl.dart' show toBeginningOfSentenceCase;
 
 class TopBarContainer extends StatelessWidget {
+  final User currentUser;
+
   const TopBarContainer({
     Key? key,
-    required this.widget,
+    required this.currentUser,
   }) : super(key: key);
-
-  final DashboardPage widget;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class TopBarContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Hello, ${widget.userFirstName}',
+                'Hello, ${currentUser.firstName}',
                 style: TextStyle(
                     fontFamily: 'Open Sans', fontWeight: FontWeight.w500, color: kDarkTextColor, fontSize: 15),
               ),
@@ -73,7 +75,7 @@ class TopBarContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '${widget.userFirstName} ${widget.userLastName}',
+                    '${currentUser.firstName} ${currentUser.lastName}',
                     style: TextStyle(
                       fontSize: 10,
                       fontWeight: FontWeight.w200,
@@ -81,7 +83,7 @@ class TopBarContainer extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Admin',
+                    toBeginningOfSentenceCase(currentUser.role)!,
                     style: TextStyle(
                       fontSize: 8,
                       fontWeight: FontWeight.w200,
@@ -90,14 +92,30 @@ class TopBarContainer extends StatelessWidget {
                   )
                 ],
               ),
-              TextButton.icon(
-                  onPressed: () {},
+              // TextButton.icon(
+              //     onPressed: () {},
+              //     icon: Icon(
+              //       FontAwesomeIcons.angleDown,
+              //       size: 8,
+              //       color: Colors.black,
+              //     ),
+              //     label: Text(''))
+              DropdownButton(
+                  iconSize: 8,
+                  isDense: true,
+                  underline: Container(),
                   icon: Icon(
                     FontAwesomeIcons.angleDown,
                     size: 8,
                     color: Colors.black,
                   ),
-                  label: Text(''))
+                  style: TextStyle(color: Colors.black, fontSize: 8),
+                  hint: Text(''),
+                  items: [
+                    DropdownMenuItem(value: 'prefs', child: Text('Preferences',style: TextStyle(fontSize: 8),),),
+                    DropdownMenuItem(value: 'logout', child: Text('Logout',style: TextStyle(fontSize: 8),),)
+                  ],
+                  onChanged: (selected) {})
             ],
           )
         ],
