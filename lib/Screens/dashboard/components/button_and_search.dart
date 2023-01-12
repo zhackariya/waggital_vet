@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:waggital_vet/Screens/dashboard/pages/patients/add_patient_dialog.dart';
 
 import '../../../constants.dart';
 
@@ -23,7 +24,7 @@ class ButtonAndSearch extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 20),
               color: kOrangeColor,
               child: TextButton(
-                onPressed: () {},
+                onPressed: () { showDialog(context: context, builder: (context){ return Dialog(child: AddPatientDialog());});},
                 child: Row(
                   children: [
                     Text(
